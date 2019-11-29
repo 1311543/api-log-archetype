@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: belcorp
+Version: 0.0.1
+Summary: A small api log example package
+Home-page: https://github.com/1311543/belc-dlk-api-log-archetype.git
+Author: Francis Josue De la Cruz
+Author-email: francis.delacruz@hundred.com.pe
+License: UNKNOWN
+Description: # belc-dlk-api-log-archetype
+        Api Log connector
+        # belc-dlk-archetype-aws
+        Concept test about belcorp aws tools.
+        * **S3** - service that exposes 2 REST end points to Campaign Manager. One to submit request and another to check status of processing
+        * **EMR** - service that receives and processes all updates
+        * **STEP FUNCTIONS** – service that notifies Campaign Manager (if callback url is passed in the request)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
