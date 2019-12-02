@@ -20,7 +20,6 @@ setuptools.setup(
     ],
     install_requires=[
         'request',
-        'numpy==1.15.4',
-        'pkgutil'
+        'numpy==1.15.4'
     ]
 )

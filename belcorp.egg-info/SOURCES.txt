@@ -8,6 +8,7 @@ belcorp.egg-info/requires.txt
 belcorp.egg-info/top_level.txt
 belcorp/api_log/__init__.py
 belcorp/api_log/logging.py
+belcorp/api_log/test.py
 belcorp/config/__init__.py
 belcorp/utils_aws/__init__.py
 belcorp/utils_aws/constants.py

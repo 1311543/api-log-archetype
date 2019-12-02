@@ -1,2 +1,2 @@
 request
-pkgutil
+numpy==1.15.4

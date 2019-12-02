@@ -98,7 +98,7 @@ class LoggingBDI:
             "fechaInicio": final_datetime.strftime(self.time_format),
             "tipoEvento": type_event,
             "evento": event,
-            "duracion": str((final_datetime - initial_datetime).microseconds / 1000),
+            "duracion": str(round((final_datetime - initial_datetime).total_seconds()*1000)),
             "mensaje": message
         }
 

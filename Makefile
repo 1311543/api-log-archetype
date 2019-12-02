@@ -3,9 +3,9 @@ help:
 	@echo "clean-pyc - remove Python file artifacts"
 	@echo "clean-build - remove wrapped file"
 	@echo "clean-test - remove test and coverage artifacts"
-	@echo "push - clear and push s3 bucket"
-	@echo "test - run tests quickly with the default Python"
-	@echo "build - package"
+	@echo "install - clear and push s3 bucket"
+	@echo "refresh - remove previos python library and install the newest"
+	@echo "wheel - package proyect"
 
 clean: clean-build clean-pyc
 
@@ -31,12 +31,3 @@ wheel: clean
 refresh:
 	pip uninstall belcorp --yes
 	python -m pip install belcorp --extra-index-url https://repository-python-archetype.s3.us-east-2.amazonaws.com/index.html
-
-build: clean
-	zip -r aws_services.zip *
-	mkdir ./wrapper
-	cp aws_services.zip ./wrapper
-	rm -f aws_services.zip
-	aws s3 cp wrapper s3://belc-bigdata-functional-dlk-qas/analitico/py/dlk_arquetipos_core/ --recursive
-	rm -R wrapper
-
