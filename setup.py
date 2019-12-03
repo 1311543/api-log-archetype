@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="belcorp",
+    name="belc_log",
     version="0.0.1",
     author="Francis Josue De la Cruz",
     author_email="francis.delacruz@hundred.com.pe",
@@ -19,7 +19,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        'request',
-        'numpy==1.15.4'
+        'requests'
     ]
 )

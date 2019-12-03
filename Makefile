@@ -24,10 +24,10 @@ install:
 
 wheel: clean
 	python setup.py sdist bdist_wheel
-	aws s3 cp index.html s3://repository-python-archetype/
+	aws s3 cp belc_log.html s3://repository-python-archetype/
 	aws s3 cp dist s3://repository-python-archetype/ --recursive
 	make refresh
 
 refresh:
-	pip uninstall belcorp --yes
-	python -m pip install belcorp --extra-index-url https://repository-python-archetype.s3.us-east-2.amazonaws.com/index.html
+	pip uninstall belc_log --yes
+	python -m pip install belc_log --extra-index-url https://repository-python-archetype.s3.us-east-2.amazonaws.com/belc_log.html

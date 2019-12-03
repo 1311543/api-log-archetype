@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from ..utils_aws.constants import ApiLogConstants as alc
+from ..utils.constants import ApiLogConstants as alc
 import requests
 import socket
 import json
