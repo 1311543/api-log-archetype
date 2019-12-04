@@ -14,11 +14,18 @@ setuptools.setup(
     url="https://github.com/1311543/belc-dlk-api-log-archetype.git",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 3",
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
     install_requires=[
         'requests'
-    ]
+    ],
+    python_requires='>=2.6, !=3.0.*, !=3.1.*, !=3.2.*, <4'
 )
