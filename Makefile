@@ -3,9 +3,9 @@ help:
 	@echo "clean-pyc - remove Python file artifacts"
 	@echo "clean-build - remove wrapped file"
 	@echo "clean-test - remove test and coverage artifacts"
-	@echo "install - Install dependencies from requirements.txt"
-	@echo "refresh - remove previous python library and install the newest"
-	@echo "wheel - package project"
+	@echo "install - clear and push s3 bucket"
+	@echo "refresh - remove previos python library and install the newest"
+	@echo "wheel - package proyect"
 
 clean: clean-build clean-pyc
 
@@ -27,13 +27,6 @@ wheel: clean
 	aws s3 cp belc_log.html s3://repository-python-archetype/
 	aws s3 cp dist s3://repository-python-archetype/ --recursive
 	make refresh
-HOOK ?= .git/hooks
-HOOK2 ?= belc_log
-hook:
-	@echo Installing aws security Hooks
-	@echo "${PWD}/${HOOK}"
-	aws s3 cp s3://repository-python-archetype/pre-commit ${PWD}/${HOOK2}/pre-commit
-	chmod +x ${PWD}/${HOOK2}/pre-commit
 
 refresh:
 	pip uninstall belc_log --yes

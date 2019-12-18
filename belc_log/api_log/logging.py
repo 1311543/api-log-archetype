@@ -6,10 +6,7 @@ import socket
 import json
 import pkgutil
 
-francis	1fLrC1q0XB9iIpKfhdqctCLdZjUKxCZADv+Lu4Wh
-AKIA4GQAF5VVMDFSF2MM11113412
 
-(?<![A-Z0-9])[A-Z0-9]{20}(?![A-Z0-9])
 class LoggingBDI:
 
     def __init__(self, env):
