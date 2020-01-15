@@ -9,5 +9,6 @@ belc_log.egg-info/top_level.txt
 belc_log/api_log/__init__.py
 belc_log/api_log/logging.py
 belc_log/config/__init__.py
+belc_log/domain/__init__.py
 belc_log/utils/__init__.py
 belc_log/utils/constants.py

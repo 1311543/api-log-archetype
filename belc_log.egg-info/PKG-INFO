@@ -15,7 +15,8 @@ Description: # belc-dlk-api-log-archetype
         * **STEP FUNCTIONS** – service that notifies Campaign Manager (if callback url is passed in the request)
         
 Platform: UNKNOWN
-Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
+Requires-Python: >=3.*, <4
 Description-Content-Type: text/markdown
