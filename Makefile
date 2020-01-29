@@ -23,7 +23,7 @@ push: pep8 clean wheel refresh git-push
 	@echo "${HEADER}"
 	@echo "Finished Process for project ${PROJECT_NAME}"
 
-develop: pep8 clean wheel refresh
+develop: clean wheel refresh
 	@echo "${HEADER}"
 	@echo "Finished Process for project ${PROJECT_NAME}"
 
