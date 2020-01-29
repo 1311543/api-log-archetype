@@ -61,11 +61,7 @@ class LoggingBDI:
                   initial_datetime,
                   final_datetime,
                   message):
-        return self.session.add_event(type_event,
-                                      event,
-                                      initial_datetime,
-                                      final_datetime,
-                                      message)
+        return self.session.add_event(type_event, event, initial_datetime, final_datetime, message)
 
     def create_endpoint(self):
         return 'http://{}:{}'.format(self.config.get('API-LOG-ADDRESS-{}'.format(self.env), 'IP'),

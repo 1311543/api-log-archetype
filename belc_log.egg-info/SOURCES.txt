@@ -1,6 +1,7 @@
 README.md
 setup.py
 belc_log/__init__.py
+belc_log/logging_bdi.py
 belc_log.egg-info/PKG-INFO
 belc_log.egg-info/SOURCES.txt
 belc_log.egg-info/dependency_links.txt
