@@ -1,6 +1,5 @@
-from typing import Type
-from belc_log.repository.apilog_session_repository import ApiLogSessionRepository
 from belc_log.domain.logger import LoggerBDI
+from belc_log.repository.apilog_session_repository import ApiLogSessionRepository
 
 
 class BdiService:

@@ -1,10 +1,13 @@
+import json
+import socket
 from abc import ABC, abstractmethod
+from datetime import datetime
+
+import requests
+from requests.exceptions import HTTPError
+
 from belc_log.domain.logger import LoggerBDI
 from belc_log.utils.constants import ApiLogConstants as alc
-from datetime import datetime
-import requests
-import socket
-import json
 
 
 class ApiLogSessionRepository(ABC):
@@ -58,13 +61,18 @@ class LoggingBDISession(ApiLogSessionRepository):
                 "input": {"TiempoEspera": "2000"},
                 "output": {}
             }
+            response = requests.post(endpoint,
+                                     data=json.dumps(data),
+                                     headers=headers,
+                                     timeout=5)
 
-            return requests.post(endpoint,
-                                 data=json.dumps(data),
-                                 headers=headers,
-                                 timeout=5)
-        except Exception as e:
-            print('\n\n>>> Error Creating Api Session : {}'.format(e))
+            response.raise_for_status()
+        except HTTPError as http_err:
+            print('\n\n>>>HTTP error occurred:'.format(http_err))
+        except Exception as err:
+            print('\n\n>>>Error Creating Api Session: '.format(err))
+        else:
+            print('Success!')
 
     def update_session(self, logger: LoggerBDI):
         try:
@@ -76,12 +84,17 @@ class LoggingBDISession(ApiLogSessionRepository):
                 "estadoEjecucion": alc.STARTED
             }
 
-            return requests.put(endpoint,
-                                data=json.dumps(data),
-                                headers=headers,
-                                timeout=5)
-        except Exception as e:
-            print('\n\n>>> Filed Update session : {}'.format(e))
+            response = requests.put(endpoint,
+                                    data=json.dumps(data),
+                                    headers=headers,
+                                    timeout=5)
+            response.raise_for_status()
+        except HTTPError as http_err:
+            print('\n\n>>>HTTP error occurred:'.format(http_err))
+        except Exception as err:
+            print('\n\n>>> Filed Update session : {}'.format(err))
+        else:
+            print('Success!')
 
     def done_session(self, logger: LoggerBDI):
         try:
@@ -95,12 +108,18 @@ class LoggingBDISession(ApiLogSessionRepository):
                 "fechaFin": timestamp
             }
 
-            return requests.post(endpoint,
-                                 data=json.dumps(data),
-                                 headers=headers,
-                                 timeout=5)
-        except Exception as e:
-            print('\n\n>>> Filed Done session : {}'.format(e))
+            response = requests.post(endpoint,
+                                     data=json.dumps(data),
+                                     headers=headers,
+                                     timeout=5)
+            response.raise_for_status()
+
+        except HTTPError as http_err:
+            print('\n\n>>>HTTP error occurred:'.format(http_err))
+        except Exception as err:
+            print('\n\n>>> Filed Done session : {}'.format(err))
+        else:
+            print('Success!')
 
     def failed_session(self, logger: LoggerBDI):
         try:
@@ -115,12 +134,18 @@ class LoggingBDISession(ApiLogSessionRepository):
                 "mensaje": logger.message
             }
 
-            return requests.post(endpoint,
-                                 data=json.dumps(data),
-                                 headers=headers,
-                                 timeout=5)
-        except Exception as e:
-            print('\n\n>>> Filed Session : {}'.format(e))
+            response = requests.post(endpoint,
+                                     data=json.dumps(data),
+                                     headers=headers,
+                                     timeout=5)
+            response.raise_for_status()
+
+        except HTTPError as http_err:
+            print('\n\n>>>HTTP error occurred:'.format(http_err))
+        except Exception as err:
+            print('\n\n>>> Filed Session : {}'.format(err))
+        else:
+            print('Success!')
 
     def add_event(self, logger: LoggerBDI):
         try:
@@ -138,9 +163,18 @@ class LoggingBDISession(ApiLogSessionRepository):
                 "mensaje": logger.message
             }
 
-            return requests.post(endpoint, data=json.dumps(data), headers=headers, timeout=5)
-        except Exception as e:
-            print('\n\n>>> Filed Add Event : {}'.format(e))
+            response = requests.post(endpoint,
+                                     data=json.dumps(data),
+                                     headers=headers,
+                                     timeout=5)
+            response.raise_for_status()
+
+        except HTTPError as http_err:
+            print('\n\n>>>HTTP error occurred:'.format(http_err))
+        except Exception as err:
+            print('\n\n>>> Filed Add Event : {}'.format(err))
+        else:
+            print('Success!')
 
 
 class AnotherApiLogSessionRepository(ApiLogSessionRepository):
@@ -157,5 +191,8 @@ class AnotherApiLogSessionRepository(ApiLogSessionRepository):
     def done_session(self, logger: LoggerBDI) -> None:
         pass
 
-    def failed_session(self, logger: LoggerBDI):
+    def failed_session(self, logger: LoggerBDI) -> None:
+        pass
+
+    def add_event(self, logger: LoggerBDI) -> None:
         pass

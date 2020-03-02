@@ -13,6 +13,8 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/1311543/belc-dlk-api-log-archetype.git",
     packages=setuptools.find_packages(),
+    package_data={'': ['*.ini']},
+    include_package_data=True,
     classifiers=[
         'Programming Language :: Python :: 3.4',
         "License :: OSI Approved :: MIT License",

@@ -1,0 +1,3 @@
+setuptools
+pycodestyle
+pytest

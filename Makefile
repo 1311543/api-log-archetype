@@ -36,8 +36,10 @@ wheel:
 
 refresh:
 	@echo "${HEADER}"
-	@echo "Installing ${PROJECT_NAME} in pip dependencies"
+	@echo "Uninstalling ${PROJECT_NAME} in pip dependencies"
 	pip3 uninstall ${PROJECT_NAME} --yes --no-cache-dir
+	python3.5 -m pip uninstall ${PROJECT_NAME} --yes --no-cache-dir
+	@echo "Installing ${PROJECT_NAME} in pip dependencies"
 	#pip3 install ${PROJECT_NAME} --extra-index-url https://repository-python-archetype.s3.us-east-2.amazonaws.com/${PROJECT_NAME}.html
 	python3.5 -m pip install ${PROJECT_NAME} --find-link=https://${BUCKET_NAME}.s3.us-east-2.amazonaws.com/${PROJECT_NAME}.html --no-cache-dir
 
